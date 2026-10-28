@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callan BEC Livelihood Association | 11.11 Go Green Campaign</title>
+    <style>
+        :root {
+            --forest-green: #2d5a27;
+            --leaf-green: #4caf50;
+            --earth-brown: #5c4033;
+            --warm-beige: #f4f1ea;
+            --cream: #faf8f5;
+            --dark-text: #2b2b2b;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--cream); color: var(--dark-text); line-height: 1.6; }
+        header { background-color: white; border-bottom: 3px solid var(--forest-green); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .logo-container { display: flex; align-items: center; gap: 15px; }
+        .logo-placeholder { width: 60px; height: 60px; background: linear-gradient(135deg, var(--leaf-green), var(--forest-green)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 24px; }
+        .brand-name h1 { font-size: 1.4rem; color: var(--forest-green); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        .brand-name p { font-size: 0.8rem; color: var(--earth-brown); }
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav a { text-decoration: none; color: var(--dark-text); font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
+        nav a:hover { color: var(--leaf-green); }
+        .promo-banner { background-color: #e8f5e9; border: 1px solid var(--leaf-green); padding: 10px; text-align: center; font-weight: bold; color: var(--forest-green); font-size: 0.9rem; }
+        
+        .hero { background: linear-gradient(rgba(45, 90, 39, 0.85), rgba(92, 64, 51, 0.85)), url('https://unsplash.com') no-repeat center center/cover; padding: 80px 5%; text-align: center; color: white; }
+        .hero h2 { font-size: 2.8rem; margin-bottom: 15px; font-weight: 800; letter-spacing: -0.5px; }
+        .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; font-weight: 300; }
+        .cta-btn { background-color: #ff9800; color: white; border: none; padding: 14px 30px; font-size: 1.1rem; font-weight: 700; border-radius: 5px; cursor: pointer; text-transform: uppercase; transition: transform 0.2s, background-color 0.3s; text-decoration: none; display: inline-block; box-shadow: 0 4px 15px rgba(255,152,0,0.4); }
+        .cta-btn:hover { background-color: #f57c00; transform: translateY(-2px); }
+
+        .section { padding: 60px 5%; }
+        .section-title { text-align: center; margin-bottom: 40px; position: relative; color: var(--forest-green); font-size: 2rem; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 3px; background-color: var(--leaf-green); margin: 10px auto 0; }
+        
+        .bundle-grid { background: white; border-radius: 12px; border: 2px dashed var(--leaf-green); padding: 40px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; gap: 40px; align-items: center; max-width: 1000px; margin: 0 auto; position: relative; }
+        .badge-11 { position: absolute; top: -15px; left: -15px; background-color: #e65100; color: white; font-weight: 900; padding: 10px 20px; font-size: 1.2rem; transform: rotate(-5deg); box-shadow: 0 4px 10px rgba(0,0,0,0.15); border-radius: 4px; }
+        .bundle-image-placeholder { flex: 1; min-width: 300px; background-color: var(--warm-beige); height: 300px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid #ddd; text-align: center; padding: 20px; }
+        .bundle-details { flex: 1.2; min-width: 300px; }
+        .price-tag { margin: 20px 0; font-size: 1.5rem; color: #e65100; font-weight: bold; }
+        .price-tag span { text-decoration: line-through; color: #888; font-size: 1.1rem; margin-right: 10px; font-weight: normal; }
+
+        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+        .product-card { background: white; border-radius: 8px; border: 1px solid #e1e8ed; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+        .product-title { font-size: 1.15rem; color: var(--forest-green); font-weight: 700; margin-bottom: 8px; text-transform: uppercase; }
+        .product-meta { font-size: 0.85rem; color: #666; margin-bottom: 15px; background: var(--warm-beige); padding: 4px 8px; border-radius: 4px; display: inline-block; }
+        .product-prices { list-style: none; margin-bottom: 20px; }
+        .product-prices li { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #f1f1f1; font-size: 0.95rem; }
+        .product-prices li:last-child { border-bottom: none; }
+        .price-num { font-weight: bold; color: var(--earth-brown); }
+
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .info-card { background: white; padding: 30px; border-radius: 8px; border-top: 4px solid var(--forest-green); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .info-card h3 { color: var(--forest-green); margin-bottom: 15px; font-size: 1.3rem; }
+
+        .order-form-container { max-width: 650px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #e1e8ed; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; color: var(--dark-text); }
+        .form-control { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; transition: border-color 0.3s; }
+        .form-control:focus { border-color: var(--leaf-green); outline: none; }
+        .btn-submit { background-color: var(--forest-green); color: white; border: none; width: 100%; padding: 15px; font-size: 1.1rem; font-weight: bold; border-radius: 6px; cursor: pointer; transition: background-color 0.3s; text-transform: uppercase; margin-top: 10px; }
+        .btn-submit:hover { background-color: #1e3d1a; }
+
+        footer { background-color: var(--earth-brown); color: white; text-align: center; padding: 40px 5%; font-size: 0.9rem; border-top: 5px solid var(--forest-green); }
+        footer p { margin-bottom: 10px; opacity: 0.8; }
+        footer .award-badge { background-color: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 20px; display: inline-block; font-size: 0.85rem; font-weight: bold; margin-top: 15px; border: 1px solid rgba(255,255,255,0.2); }
+    </style>
+</head>
+<body>
+
+    <div class="promo-banner">
+        🌱 11.11 EXCLUSIVE: Nurture your garden. Support our weavers. Go green this November 11!
+    </div>
+
+    <header>
+        <div class="logo-container">
+            <div class="logo-placeholder">🌴</div>
+            <div class="brand-name">
+                <h1>Callan BEC</h1>
+                <p>Livelihood Association • Go Green</p>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#bundle">11.11 Offer</a></li>
+                <li><a href="#catalog">Products</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#delivery">Delivery & Fare</a></li>
+                <li><a href="#order">Order Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>From Coconut Waste to Garden Gold</h2>
+        <p>Turn discarded husks into organic plant lifesavers. Choose 100% organic, community-made essentials over mass-produced plastics.</p>
+        <a href="#bundle" class="cta-btn">Claim 11.11 Bundle Offer</a>
+    </section>
+
+    <!-- 11.11 Bundle Feature -->
+    <section id="bundle" class="section">
+        <h2 class="section-title">Exclusive 11.11 Bundle Strategy</h2>
+        <div class="bundle-grid">
+            <div class="badge-11">11.11 ONLY</div>
+            <div class="bundle-image-placeholder">
+                <strong style="color: var(--forest-green); font-size: 1.3rem; margin-bottom: 10px;">The Ultimate Green Thumb Bundle</strong>
+                <p style="font-size: 0.9rem; color: #555;">📦 Complete Ready-to-Use Organic Ecosystem</p>
+                <div style="margin-top: 15px; font-size: 0.85rem; text-align: left; color: #444; line-height: 1.4;">
+                    • 3kg High-Quality Coco Peat<br>
+                    • 2 Multi-size Crafted Coir Poles<br>
+                    • 1 FREE Coconut Shell (Bagol) Hand Trowel
+                </div>
+            </div>
+            <div class="bundle-details">
+                <h3>The Ultimate Green Thumb Bundle</h3>
+                <p style="margin-top: 10px; color: #555;">Specially assembled to clear Q4 inventory, maximize soil moisture retention, and boost average order values to help offset shipping costs for bulky items.</p>
+                
+                <div class="price-tag">
+                    <span>₱450.00</span> ₱299.00 Only
+                </div>
+                
+                <div style="background-color: #fff8e1; border-left: 4px solid #ffb300; padding: 12px; margin-bottom: 25px; font-size: 0.85rem; color: #6d4c41;">
+                    <strong>Impact Note:</strong> Provides localized employment for artisanal weavers in Brgy. Callan and transforms regional agricultural waste into wealth.
+                </div>
